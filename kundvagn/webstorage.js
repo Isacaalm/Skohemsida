@@ -1,5 +1,5 @@
 //add new key=>value to the HTML5 storage
-function sparaProdukt() {
+function handlaProdukt() {
 			
 	var produktNamn = document.getElementById('produktNamn').innerText;
 	var produktPris = document.getElementById('produktPris').innerText;
