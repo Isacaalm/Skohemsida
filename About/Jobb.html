@@ -12,35 +12,34 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="../css/styles.css" rel="stylesheet" />
-        <script src="webstorage.js"></script>
+        <script src="webstorage.js"></script> 
     </head>
     <body>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="../homepage/Homepage.html">Home</a>
+                <a class="navbar-brand" href="../homepage\Homepage.html">Home</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="../homepage\Homepage.html">soooo</a></li>
-                        <li class="nav-item"><a class="nav-link" href="..\about\about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Shoes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">jordan 4</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">New Balance 550</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Help</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#!">All Products</a></li>
+                                <li><a class="dropdown-item" href="#!">About</a></li>
                                 <li><hr class="dropdown-divider" /></li>
-                                <li><a class="dropdown-item" href="#!">Popular Items</a></li>
-                                <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
+                                <li><a class="dropdown-item" href="#!">Shoesize</a></li>
+                                
                             </ul>
                         </li>
                     </ul>
-                    <form class="d-flex">
-                        <button class="btn btn-outline-dark" href="kundvagn.html" type="submit">
+                    <a class="btn btn-outline-dark" href="../kundvagn\kundvagn.html" type="button">
                             <i class="bi-cart-fill me-1"></i>
                             Cart
                             <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                        </button>
-                    </form>
+                    </a>
                 </div>
             </div>
         </nav>
@@ -48,26 +47,24 @@
         <header class="bg-dark py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Kundvagn</h1>
+                    <h1 class="display-4 fw-bolder">Bli del av vårt team!</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">ShoestoreNTI</p>
                 </div>
             </div>
         </header>
-
-        <!-- Kundvagn -->
-        <form name=ShoppingList>
-            <div id="items_table">
-                <table id=list></table>
-            </div>
-        </form>
-
-        <ul> 
-            <li type="button" class="btn btn-outline-dark mt-auto" onclick=ClearAll()><a>Töm kundvagn</a></li> 
-            <li type="button" class="btn btn-outline-dark mt-auto" onclick=sparaProdukt()><a>Lägg till test</a></li> 
-        </ul>
+        <!-- Section-->
+        <section class="py-5">
+            <h4 class="text-center">
+                Just nu har vi inga tillängliga positioner!
+            </h4>
+            <h4 class="text-center">
+                Kom tillbaka en annan gång och bli del av vårt team!
+            </h4>
+        </section>
 
         <!-- Footer-->
         <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; NTI TE4</p></div>
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; ShoestoreNTI.com 2022</p></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
