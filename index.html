@@ -14,7 +14,7 @@
         <link href="css/styles.css" rel="stylesheet" />
         <script src="kundvagn/webstorage.js"></script> 
     </head>
-    <body>
+    <body onload=getKundkorg()>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
@@ -38,7 +38,7 @@
                     <a class="btn btn-outline-dark" href="kundvagn\kundvagn.html" type="button">
                             <i class="bi-cart-fill me-1"></i>
                             Cart
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                            <span class="badge bg-dark text-white ms-1 rounded-pill" id="antalProdukter"></span>
                     </a>
                 </div>
             </div>
@@ -53,18 +53,7 @@
             </div>
         </header>
         <!-- Section-->
-        <section class="py-5">
-            <!-- Kundagn -->
-            <div class="d-flex justify-content-end">               
-                <form name=ShoppingList>
-                <li type="button" class="btn btn-outline-dark mt-auto" onclick=rensaKundKorg()><a>Töm kundvagn</a></li> 
-                <li type="button" class="btn btn-outline-dark mt-auto" onclick=visaKundkorg()><a>Visa kundkorg</a></li> 
-                <div id="items_table" >
-                    <h3>Kundvagn</h3>
-                    <table id=list></table>
-                </div>
-                </form>
-            </div>
+        <section class="py-5">        
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     <div class="col mb-5">
