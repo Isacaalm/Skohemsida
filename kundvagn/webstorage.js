@@ -3,6 +3,7 @@ function handlaProdukt() {
 	var produktNamn = document.getElementById('produktNamn').innerText;
 	var produktPris = document.getElementById('produktPris').innerText;
 	localStorage.setItem(produktNamn, produktPris);
+    getKundkorg();
 	visaKundkorg();
 	
 }
@@ -15,6 +16,7 @@ function taBortProdukt() {
 
 function rensaKundKorg() {
 	localStorage.clear();
+    getKundkorg();
 	visaKundkorg();
 }
 
