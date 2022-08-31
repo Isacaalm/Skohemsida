@@ -15,7 +15,7 @@
         <link href="../css/styles.css" rel="stylesheet" />
         <script src="../kundvagn/webstorage.js"></script>
     </head>
-    <body>
+    <body onload=getKundkorg()>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
@@ -25,20 +25,20 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                        
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                            <li class="nav-item"><a class="nav-link" href="../index.html">Alla Skor</a></li>
-                            <li class="nav-item"><a class="nav-link" href="../Section/Mens.html">Herr </a></li>
-                            <li class="nav-item"><a class="nav-link" href="../Section/Woman.html">Damn</a></li>
-                            <li class="nav-item"><a class="nav-link" href="../Section/Kids.html">Barn</a></li>
-                            <li class="nav-item"><a class="nav-link" href="../About\About.html">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../Allshoes.html">Alla Skor</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../Mens.html">Herr </a></li>
+                            <li class="nav-item"><a class="nav-link" href="../Woman.html">Damn</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../Kids.html">Barn</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../About\About.html">Om oss</a></li>
                         </ul>
                         </li>
                     </ul>
                     <form class="d-flex">
-                        <button class="btn btn-outline-dark" type="submit">
+                        <a class="btn btn-outline-dark" href="../kundvagn\kundvagn.html" type="button">
                             <i class="bi-cart-fill me-1"></i>
-                            Cart
-                            <span class="badge bg-dark text-white ms-1 rounded-pill" id="antalProdukter"></span>
-                        </button>
+                            Kundvagn
+                            <span class="badge bg-dark text-white ms-1 rounded-pill" id="antalProdukter">0</span>
+                    </a>
                     </form>
                 </div>
             </div>
@@ -51,7 +51,7 @@
                     <p class="lead fw-normal text-white-50 mb-0">På ShoestoreNTI kan du hitta de bästa skorna just för dig. </p>
                     <br>
                     
-                    <a href="../index.html" class="btn btn-light">HANDLA</a>
+                    <a href="../Allshoes.html" class="btn btn-light">HANDLA</a>
 
                 </div>
             </div>

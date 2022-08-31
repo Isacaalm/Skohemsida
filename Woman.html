@@ -11,10 +11,10 @@
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="../css/styles.css" rel="stylesheet" />
-        <script src="../kundvagn/webstorage.js"></script> 
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="kundvagn/webstorage.js"></script> 
     </head>
-    <body>
+    <body onload=getKundkorg()>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
@@ -22,16 +22,16 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link" href="../index.html">Alla Skor</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Allshoes.html">Alla Skor</a></li>
                         <li class="nav-item"><a class="nav-link" href="Mens.html">Herr </a></li>
                         <li class="nav-item"><a class="nav-link" href="Woman.html">Dam</a></li>
                         <li class="nav-item"><a class="nav-link" href="Kids.html">Barn</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../About\About.html">Om </a></li>
+                        <li class="nav-item"><a class="nav-link" href="About\About.html">Om oss</a></li>
                     </ul>
                     <a class="btn btn-outline-dark" href="kundvagn\kundvagn.html" type="button">
                             <i class="bi-cart-fill me-1"></i>
-                            Cart
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                            Kundvagn
+                            <span class="badge bg-dark text-white ms-1 rounded-pill" id="antalProdukter">0</span>
                     </a>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="../Images/dam550.png" alt="..." />
+                            <img class="card-img-top" id ="produktBild1" src="Images/dam550.png" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -78,7 +78,7 @@
                            
                            
                             <!-- Product image-->
-                            <img class="card-img-top" src="../Images/damarigato.png" alt="..." />
+                            <img class="card-img-top"id ="produktBild2"  src="Images/damarigato.png" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -105,7 +105,7 @@
                            
                             
                             <!-- Product image-->
-                            <img class="card-img-top" src="../Images/damnew.png" alt="..." />
+                            <img class="card-img-top" id ="produktBild3" src="Images/damnew.png" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -128,7 +128,7 @@
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="../Images/damadidas.png" alt="..." />
+                            <img class="card-img-top" id ="produktBild4" src="Images/damadidas.png" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -154,7 +154,7 @@
                     <div class="col mb-5">
                         <div class="card h-100">
                            <!-- Product image-->
-                            <img class="card-img-top" src="../Images/damblazer.png" alt="..." />
+                            <img class="card-img-top" id ="produktBild5" src="Images/damblazer.png" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -178,7 +178,7 @@
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="../Images/damncool.png" alt="..." />
+                            <img class="card-img-top" id ="produktBild6" src="Images/damncool.png" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -203,7 +203,7 @@
                         <div class="card h-100">
                            
                             <!-- Product image-->
-                            <img class="card-img-top" src="../Images/damsvart.png" alt="..." />
+                            <img class="card-img-top" id ="produktBild7" src="Images/damsvart.png" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -227,20 +227,21 @@
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="../Images/damngympa.jpg" alt="..." />
+                            <img class="card-img-top" id ="produktBild8" src="Images/damngympa.jpg" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder" id="produktNamn">Steve Madden MATCH</h5>
+                                    <h5 class="fw-bolder" id="produktNamn8">Steve Madden MATCH</h5>
                                  
-                                 1 145 kr
+                            <!-- Product price-->
+                            <div id="produktPris7">399 kr</div>
                             </div>
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                  
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" onclick=handlaProdukt()>Handla</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" onclick=handlaProdukt(8)>Handla</a></div>
                             </div>
                         </div>
                     </div>
@@ -255,5 +256,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+              <!-- Uppdatera antal produkter i kundkog, MÅSTE LIGGA LÄNGST NER! -->
+              <script>getKundkorg()</script> 
     </body>
 </html>
