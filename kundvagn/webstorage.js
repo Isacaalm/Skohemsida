@@ -27,41 +27,41 @@ function visaKundkorg() { // Denna funktionen printar endast ut listan med objek
         var item = [];
 		var list = "<tr><th></th><th></th></tr>\n";
 		var i = 0;
+        var totalKostnad = 0;
+        var prisToInt = 0;
         
 		for (i = 0; i <= localStorage.length-1; i++) {
-			key = localStorage.key(i);
+			pristoInt = 0;
+            key = localStorage.key(i);
             item = localStorage.getItem(key).split(/(?=http)/g); // delar item till vänster om "http"
-            console.log(key)
-            console.log(item)
-			//list +=  "<tr><td class='fw-bolder' style='padding-right: 50px; font-size: 30px;'>" + 
-            //key + 
-            //"</td>\n<td class='listPris' style='font-size: 20px;'>" +
-			//localStorage.getItem(key) + "</td><img src='" + 
-            //localStorage.getItem(key) + "'></img></tr>\n";
             
             // produktNamn
             list += "<tr><td class='fw-bolder' style='padding-right: 50px; font-size: 30px;'>" + key + "</td>\n"
             
             // produktPris
-            list += "<td class='listPris' style='font-size: 20px;'>" +
+            totalKostnad += parseInt(item[0].slice(0,-2)); // tar bort sista två charsen (kr) samt gör om produkt priset till en int
+            list += "<td style='font-size: 20px;'>" +
 			item[0] + "</td>";
 
             // produktBild
             list += "</tr><td><img class='card-img-top' src='" + item[1] + "'></img></td>\n";
 
 		}
+
         
 		if (list == "<tr><th></th><th></th></tr>\n") {
 			list += "<tr><td class='fw-bolder' style='font-size: 30px;'>Din kundvagn är tom</td></tr>";
 		}
 
+        } else {
+            alert('Cannot save shopping list as your browser does not support HTML 5');
+        }
+
 		document.getElementById('list').innerHTML = list; 
-        // visaKundkorg och getKundkorg kan inte delas då dessa typer av kod (getElementById = x) ger error om ingen html kod med id x existerar.
-	} else {
-		alert('Cannot save shopping list as your browser does not support HTML 5');
-	}
+        document.getElementById('totalKostnad').innerHTML = "Total kostnad: " + totalKostnad + "kr";
 }
 
+// visaKundkorg och getKundkorg kan inte delas då dessa typer av kod (getElementById = x) ger error om ingen html kod med id x existerar.
 function getKundkorg() { // Denna funktionen "hämtar" kundkorgen sedan sätter id "antal produkter" till antalet objekt i localStorage
     // MÅSTE LIGGA LÄNGST NER I HTML
 	if (CheckBrowser()) {
