@@ -1,7 +1,10 @@
 function handlaProdukt(id) {
 	var produktNamn = document.getElementById('produktNamn'+id).innerText;
 	var produktPris = document.getElementById('produktPris'+id).innerText;
-	localStorage.setItem(produktNamn, produktPris);    
+    produktPris = produktPris.replace(/ /g,''); // tar bort mellanrum i produktpris
+    var produktBild = document.getElementById('produktBild'+id).src;
+    var produktInfo = produktPris.concat(produktBild); // lägg ihop stringar
+	localStorage.setItem(produktNamn, produktInfo);  // spara itemet produktNamn med keyn produktInfo
     getKundkorg();
 	
 }
@@ -21,17 +24,35 @@ function rensaKundKorg() {
 function visaKundkorg() { // Denna funktionen printar endast ut listan med objekt i localStorage
 	if (CheckBrowser()) {
 		var key = "";
-		var list = "<tr><th>Item</th><th>Value</th></tr>\n";
+        var item = [];
+		var list = "<tr><th></th><th></th></tr>\n";
 		var i = 0;
         
 		for (i = 0; i <= localStorage.length-1; i++) {
 			key = localStorage.key(i);
-			list += "<tr><td>" + key + "</td>\n<td>"
-					+ localStorage.getItem(key) + "</td></tr>\n";
-		}
+            item = localStorage.getItem(key).split(/(?=http)/g); // delar item till vänster om "http"
+            console.log(key)
+            console.log(item)
+			//list +=  "<tr><td class='fw-bolder' style='padding-right: 50px; font-size: 30px;'>" + 
+            //key + 
+            //"</td>\n<td class='listPris' style='font-size: 20px;'>" +
+			//localStorage.getItem(key) + "</td><img src='" + 
+            //localStorage.getItem(key) + "'></img></tr>\n";
+            
+            // produktNamn
+            list += "<tr><td class='fw-bolder' style='padding-right: 50px; font-size: 30px;'>" + key + "</td>\n"
+            
+            // produktPris
+            list += "<td class='listPris' style='font-size: 20px;'>" +
+			item[0] + "</td>";
 
-		if (list == "<tr><th>Item</th><th>Value</th></tr>\n") {
-			list += "<tr><td><i>empty</i></td>\n<td><i>empty</i></td></tr>\n";
+            // produktBild
+            list += "</tr><td><img class='card-img-top' src='" + item[1] + "'></img></td>\n";
+
+		}
+        
+		if (list == "<tr><th></th><th></th></tr>\n") {
+			list += "<tr><td class='fw-bolder' style='font-size: 30px;'>Din kundvagn är tom</td></tr>";
 		}
 
 		document.getElementById('list').innerHTML = list; 
