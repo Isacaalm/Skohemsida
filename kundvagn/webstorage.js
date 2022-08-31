@@ -47,7 +47,7 @@ function visaKundkorg() { // Denna funktionen printar endast ut listan med objek
 			item[0] + "</td>";
 
             // produktBild
-            list += "<td><img src='" + item[1] + "'></img></td></tr>\n";
+            list += "</tr><td><img class='card-img-top' src='" + item[1] + "'></img></td>\n";
 
 		}
         
