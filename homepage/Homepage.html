@@ -13,8 +13,9 @@
         <link href="../css/overridestyles.css" rel="stylesheet"/>
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="../css/styles.css" rel="stylesheet" />
+        <script src="../kundvagn/webstorage.js"></script>
     </head>
-    <body onload=getKundkorg()>
+    <body>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
@@ -40,7 +41,7 @@
                         <button class="btn btn-outline-dark" type="submit">
                             <i class="bi-cart-fill me-1"></i>
                             Cart
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                            <span class="badge bg-dark text-white ms-1 rounded-pill" id="antalProdukter"></span>
                         </button>
                     </form>
                 </div>
@@ -94,6 +95,7 @@
                 </div>
             </div>
         </div>
-    
+            <!-- Uppdatera antal produkter i kundkog, MÅSTE LIGGA LÄNGST NER! -->
+            <script>getKundkorg()</script> 
     </body>
 </html>
