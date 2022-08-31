@@ -11,10 +11,10 @@
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-        <script src="kundvagn/webstorage.js"></script> 
+        <link href="../css/styles.css" rel="stylesheet" />
+        <script src="/kundvagn/webstorage.js"></script> 
     </head>
-    <body onload=getKundkorg()>
+    <body>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
@@ -22,16 +22,16 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Unisex</a></li>
-                        <li class="nav-item"><a class="nav-link" href="Section/Mens.html">Mens </a></li>
-                        <li class="nav-item"><a class="nav-link" href="Section/Woman.html">Womans</a></li>
-                        <li class="nav-item"><a class="nav-link" href="Section/Kids.html">Kids</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">Unisex</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">Mens </a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">Womans</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">Kids</a></li>
                         <li class="nav-item"><a class="nav-link" href="../About\About.html">About</a></li>
                     </ul>
                     <a class="btn btn-outline-dark" href="kundvagn\kundvagn.html" type="button">
                             <i class="bi-cart-fill me-1"></i>
                             Cart
-                            <span class="badge bg-dark text-white ms-1 rounded-pill" id="antalProdukter"></span>
+                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                     </a>
                 </div>
             </div>
@@ -47,29 +47,33 @@
             </div>
         </header>
         <!-- Section-->
-        <section class="py-5">        
+        <section class="py-5">
+            <div class="d-flex justify-content-end">               
+                <form name=ShoppingList>
+                <div id="items_table" >
+                    <h3>Kundvagn</h3>
+                    <table id=list></table>
+                </div>
+                </form>
+            </div>
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="Images/mocha.png" alt="..." />
+                            <img class="card-img-top" src="/Images/Prada.jpg" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder" id ="produktNamn1">Air Jordan 1 Retro High OG 'Dark Mocha'</h5>
+                                    <h5 class="fw-bolder">Air Jordan 1 Retro High OG 'Dark Mocha'</h5>
                                     <!-- Product price-->
-                                    <div id="produktPris1">5 999 kr</div>
+                                    5 999 kr
                                 </div>
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center">
-                                    <a class="btn btn-outline-dark mt-auto" onclick=handlaProdukt(1)>
-                                        Handla
-                                    </a>
-                                </div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Handla</a></div>
                             </div>
                         </div>
                     </div>
@@ -83,20 +87,16 @@
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder" id ="produktNamn2">Nike Dunk Low 'UNC'</h5>
+                                    <h5 class="fw-bolder">Nike Dunk Low 'UNC'</h5>
                                     <!-- Product reviews-->
                                     
                                     <!-- Product price-->
-                                    <div id="produktPris2">3 499 kr</div>
+                                    3 499 kr
                                 </div>
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center">
-                                    <a class="btn btn-outline-dark mt-auto" onclick=handlaProdukt(2)>
-                                        Handla
-                                    </a>
-                                </div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Handla</a></div>
                             </div>
                         </div>
                     </div>
@@ -110,18 +110,14 @@
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder" id ="produktNamn3">New Balance 550 'White Blue'</h5>
+                                    <h5 class="fw-bolder">New Balance 550 'White Blue'</h5>
                                     <!-- Product price-->
-                                    <div id="produktPris3">2 099 kr</div>
+                                    2 099 kr
                                 </div>
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center">
-                                    <a class="btn btn-outline-dark mt-auto" onclick=handlaProdukt(3)>
-                                        Handla
-                                    </a>
-                                </div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Handla</a></div>
                             </div>
                         </div>
                     </div>
@@ -133,20 +129,16 @@
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder" id ="produktNamn4">Air Jordan 4 Retro 'Infrared'</h5>
+                                    <h5 class="fw-bolder">Air Jordan 4 Retro 'Infrared'</h5>
                                    
                                    
                                     <!-- Product price-->
-                                    <div id="produktPris4">3 499 kr</div>
+                                    3 499 kr
                                 </div>
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center">
-                                    <a class="btn btn-outline-dark mt-auto" onclick=handlaProdukt(4)>
-                                        Handla
-                                    </a>
-                                </div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Handla</a></div>
                             </div>
                         </div>
                     </div>
@@ -159,18 +151,14 @@
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder" id ="produktNamn5">New Balance 550 'Burgundy Cyan'</h5>
+                                    <h5 class="fw-bolder">New Balance 550 'Burgundy Cyan'</h5>
                                     <!-- Product price-->
-                                    <div id="produktPris5">2 399 kr</div>
+                                    2 399 kr
                                 </div>
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center">
-                                    <a class="btn btn-outline-dark mt-auto" onclick=handlaProdukt(5)>
-                                        Handla
-                                    </a>
-                                </div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Handla</a></div>
                             </div>
                         </div>
                     </div>
@@ -183,18 +171,14 @@
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder" id ="produktNamn6">Air Jordan 1 Retro Low OG SP 'Travis Scott Reverse Mocha'</h5>
+                                    <h5 class="fw-bolder">Air Jordan 1 Retro Low OG SP 'Travis Scott Reverse Mocha'</h5>
                                     <!-- Product price-->
-                                    <div id="produktPris6">14 999kr</div>
+                                    14 999kr
                                 </div>
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center">
-                                    <a class="btn btn-outline-dark mt-auto" onclick=handlaProdukt(6)>
-                                        Handla
-                                    </a>
-                                </div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Handla</a></div>
                             </div>
                         </div>
                     </div>
@@ -208,19 +192,15 @@
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder" id="produktNamn7">Nike SB Dunk Low Ben & Jerry's 'Chunky Dunky'</h5>
+                                    <h5 class="fw-bolder">Nike SB Dunk Low Ben & Jerry's 'Chunky Dunky'</h5>
                                  
                                     <!-- Product price-->
-                                    <div id="produktPris7">16 999 kr</div>
+                                    16 999 kr
                                 </div>
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center">
-                                    <a class="btn btn-outline-dark mt-auto" onclick=handlaProdukt(7)>
-                                        Handla
-                                    </a>
-                                </div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Handla</a></div>
                             </div>
                         </div>
                     </div>
