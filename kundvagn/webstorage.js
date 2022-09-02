@@ -2,11 +2,29 @@ function handlaProdukt(id) {
 	var produktNamn = document.getElementById('produktNamn'+id).innerText;
 	var produktPris = document.getElementById('produktPris'+id).innerText;
     produktPris = produktPris.replace(/ /g,''); // tar bort mellanrum i produktpris
-    var produktBild = document.getElementById('produktBild'+id).src;
-    var produktInfo = produktPris.concat(produktBild); // lägg ihop stringar
-	localStorage.setItem(produktNamn, produktInfo);  // spara itemet produktNamn med keyn produktInfo
+    var produktAntal = "antal1";
+	var produktBild = document.getElementById('produktBild'+id).src;
+    var produktInfo = produktPris.concat(produktBild).concat(produktAntal); // lägg ihop stringar
+    
+    // Om produktNamn redan finns i localStorage, addera produktAntal 
+    if (produktNamn === localStorage.key(produktNamn)) {
+        adderaProdukt(produktNamn, produktInfo);
+    } else {
+        localStorage.setItem(produktNamn, produktInfo);  // spara keyn produktNamn med itemet produktInfo
+    }
     getKundkorg();
-	
+}
+
+function adderaProdukt(produktNamn, produktInfo) {
+    var produktInfoTemp = [];
+    var produktAntalTemp = 0;
+    produktInfoTemp = produktInfo.split(/(?=antal)/g);
+    produktInfoTemp[1] = produktInfoTemp[1].replace("antal","");
+    produktAntalTemp = parseInt(produktInfoTemp[1]) + 1;
+    produktInfoTemp[1] = produktAntalTemp.toString();
+    produktInfoTemp[1] = "antal" + produktInfoTemp[1];
+    produktInfo = produktInfoTemp[0].concat(produktInfoTemp[1]);
+    localStorage.setItem(produktNamn, produktInfoTemp);
 }
 
 function taBortProdukt() {
@@ -28,12 +46,13 @@ function visaKundkorg() { // Denna funktionen printar endast ut listan med objek
 		var list = "<tr><th></th><th></th></tr>\n";
 		var i = 0;
         var totalKostnad = 0;
-        var prisToInt = 0;
         
 		for (i = 0; i <= localStorage.length-1; i++) {
 			pristoInt = 0;
             key = localStorage.key(i);
             item = localStorage.getItem(key).split(/(?=http)/g); // delar item till vänster om "http"
+            item[2] = item[1].split(/(?=antal)/g); // FORTSÄTT HÄR
+            console.log(item);
             
             // produktNamn
             list += "<tr><td class='fw-bolder' style='padding-right: 50px; font-size: 30px;'>" + key + "</td>\n"
@@ -45,6 +64,8 @@ function visaKundkorg() { // Denna funktionen printar endast ut listan med objek
 
             // produktBild
             list += "</tr><td><img class='card-img-top' src='" + item[1] + "'></img></td>\n";
+
+            // produktAntal
 
 		}
 
