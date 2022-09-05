@@ -109,14 +109,16 @@ function getKundkorg() { // Denna funktionen sätter id "antal produkter" till a
 
 
 // Kundvagns funktioner
-function modifieraProduktAntal() {
+function modifieraProduktAntal(produktNamn) {
+    var item = [];
+    var produktNamn = "";
+    var produktPris = "";
+    var produktBild = "";
+    var produktAntal = "";
 
-}
 
-function taBortProdukt() {
-	var produktNamn = document.forms.ShoppingList.produktNamn.value;
-	document.forms.ShoppingList.produktPris.value = localStorage.taBortProdukt(produktNamn);
-	visaKundkorg();
+
+
 }
 
 function rensaKundKorg() {
@@ -124,6 +126,15 @@ function rensaKundKorg() {
     getKundkorg();
 	visaKundkorg();
 }
+
+
+
+
+
+
+
+
+
 
 
 
