@@ -8,14 +8,14 @@ function handlaProdukt(id) {
     
     // Om produktNamn redan finns i localStorage, addera produktAntal 
     if (produktNamn === localStorage.key(produktNamn)) {
-        adderaProdukt(produktNamn, produktInfo);
+        adderaAntal(produktNamn, localStorage.getItem(produktNamn));
     } else {
         localStorage.setItem(produktNamn, produktInfo);  // spara keyn produktNamn med itemet produktInfo
     }
     getKundkorg();
 }
 
-function adderaProdukt(produktNamn, produktInfo) {
+function adderaAntal(produktNamn, produktInfo) {
     var produktInfoTemp = [];
     var produktAntalTemp = 0;
     produktInfoTemp = produktInfo.split(/(?=antal)/g);
@@ -23,50 +23,49 @@ function adderaProdukt(produktNamn, produktInfo) {
     produktAntalTemp = parseInt(produktInfoTemp[1]) + 1;
     produktInfoTemp[1] = produktAntalTemp.toString();
     produktInfoTemp[1] = "antal" + produktInfoTemp[1];
-    produktInfo = produktInfoTemp[0].concat(produktInfoTemp[1]);
+    produktInfoTemp = produktInfoTemp.join("");
     localStorage.setItem(produktNamn, produktInfoTemp);
-}
-
-function taBortProdukt() {
-	var produktNamn = document.forms.ShoppingList.produktNamn.value;
-	document.forms.ShoppingList.produktPris.value = localStorage.taBortProdukt(produktNamn);
-	visaKundkorg();
-}
-
-function rensaKundKorg() {
-	localStorage.clear();
-    getKundkorg();
-	visaKundkorg();
 }
 
 function visaKundkorg() { // Denna funktionen printar endast ut listan med objekt i localStorage
 	if (CheckBrowser()) {
-		var key = "";
         var item = [];
+        var produktNamn = "";
+        var produktPris = "";
+        var produktBild = "";
+        var produktAntal = "";
+        
 		var list = "<tr><th></th><th></th></tr>\n";
-		var i = 0;
         var totalKostnad = 0;
         
-		for (i = 0; i <= localStorage.length-1; i++) {
+		for (var i = 0; i <= localStorage.length-1; i++) {
 			pristoInt = 0;
-            key = localStorage.key(i);
-            item = localStorage.getItem(key).split(/(?=http)/g); // delar item till vänster om "http"
-            item[2] = item[1].split(/(?=antal)/g); // FORTSÄTT HÄR
-            console.log(item);
+            produktNamn = localStorage.key(i);
+            item = localStorage.getItem(produktNamn).split(/(?=http)/g); // delar item till vänster om "http"
+            produktPris = item[0];
+            item[2] = item[1].split(/(?=antal)/g); 
+            produktBild = item[2][0];
+            produktAntal = item[2][1];
+            produktAntal = produktAntal.replace("antal","");
             
             // produktNamn
-            list += "<tr><td class='fw-bolder' style='padding-right: 50px; font-size: 30px;'>" + key + "</td>\n"
+            list += "<tr><td class='fw-bolder' style='padding-right: 50px; font-size: 30px;'>" + produktNamn + "</td>\n"
             
             // produktPris
             totalKostnad += parseInt(item[0].slice(0,-2)); // tar bort sista två charsen (kr) samt gör om produkt priset till en int
             list += "<td style='font-size: 20px;'>" +
-			item[0] + "</td>";
+			produktPris + "</td>";
 
             // produktBild
-            list += "</tr><td><img class='card-img-top' src='" + item[1] + "'></img></td>\n";
+            list += "</tr><td><img class='card-img-top' src='" + produktBild + "'></img></td>\n";
 
             // produktAntal
+            list += "<td style='font-size: 20px;'>Antal: " +
+			produktAntal + "</td>";
 
+            // produktKnappar
+            list += "<ul><li type='button' class='btn btn-outline-dark mt-auto' onclick=rensaKundKorg()><a>+</a></li>" 
+            + "<li type='button' class='btn btn-outline-dark mt-auto' onclick=rensaKundKorg()><a>-</a></li></ul>";
 		}
 
         
@@ -82,29 +81,64 @@ function visaKundkorg() { // Denna funktionen printar endast ut listan med objek
         document.getElementById('totalKostnad').innerHTML = "Total kostnad: " + totalKostnad + "kr";
 }
 
-// visaKundkorg och getKundkorg kan inte delas då dessa typer av kod (getElementById = x) ger error om ingen html kod med id x existerar.
-function getKundkorg() { // Denna funktionen "hämtar" kundkorgen sedan sätter id "antal produkter" till antalet objekt i localStorage
-    // MÅSTE LIGGA LÄNGST NER I HTML
+
+// visaKundkorg och getKundkorg kan inte delas då dessa typer av kod (getElementById = x) ger error om ingen html kod med id x existerar. 
+// MÅSTE LIGGA LÄNGST NER I HTML
+function getKundkorg() { // Denna funktionen sätter id "antal produkter" till antalet produkter i kundvagnen 
 	if (CheckBrowser()) {
-		var key = "";
-		var list = "<tr><th>Item</th><th>Value</th></tr>\n";
-		var i = 0;
-        
-		for (i = 0; i <= localStorage.length-1; i++) {
-			key = localStorage.key(i);
-			list += "<tr><td>" + key + "</td>\n<td>"
-					+ localStorage.getItem(key) + "</td></tr>\n";
-		}
+        var produktNamn = "";
+        var produktAntal = "";
+        var antalProdukter = 0;
 
-		if (list == "<tr><th>Item</th><th>Value</th></tr>\n") {
-			list += "<tr><td><i>empty</i></td>\n<td><i>empty</i></td></tr>\n";
-		}
 
-        document.getElementById('antalProdukter').innerHTML = localStorage.length;
+		for (var i = 0; i <= localStorage.length-1; i++) { // forloop för att räkna antalet produkter i kundkorgen
+            produktNamn = localStorage.key(i);
+            item = localStorage.getItem(produktNamn).split(/(?=http)/g); // delar item till vänster om "http"
+            item[2] = item[1].split(/(?=antal)/g); 
+            produktAntal = item[2][1];
+            produktAntal = produktAntal.replace("antal","");
+            antalProdukter += parseInt(produktAntal);
+		}
+        document.getElementById('antalProdukter').innerHTML = antalProdukter;
+     
 	} else {
 		alert('Cannot save shopping list as your browser does not support HTML 5');
 	}
 }
+
+
+
+// Kundvagns funktioner
+function modifieraProduktAntal() {
+
+}
+
+function taBortProdukt() {
+	var produktNamn = document.forms.ShoppingList.produktNamn.value;
+	document.forms.ShoppingList.produktPris.value = localStorage.taBortProdukt(produktNamn);
+	visaKundkorg();
+}
+
+function rensaKundKorg() {
+	localStorage.clear();
+    getKundkorg();
+	visaKundkorg();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function CheckBrowser() {
 	if ('localStorage' in window && window['localStorage'] !== null) {
