@@ -5,14 +5,15 @@ function handlaProdukt(id) {
     var produktAntal = "antal1";
 	var produktBild = document.getElementById('produktBild'+id).src;
     var produktInfo = produktPris.concat(produktBild).concat(produktAntal); // lägg ihop stringar
-    
-    // Om produktNamn redan finns i localStorage, addera produktAntal 
-    if (produktNamn === localStorage.key(produktNamn)) {
-        adderaAntal(produktNamn, localStorage.getItem(produktNamn));
-    } else {
+    // Om produktNamn redan finns i localStorage, addera produktAntal. 
+    if (localStorage.getItem(produktNamn) === null) {
         localStorage.setItem(produktNamn, produktInfo);  // spara keyn produktNamn med itemet produktInfo
+    } else {
+        adderaAntal(produktNamn, localStorage.getItem(produktNamn));
     }
     getKundkorg();
+    document.getElementById('popup').hidden = false;
+    setTimeout(()=> document.getElementById('popup').hidden = true, 1000);
 }
 
 function adderaAntal(produktNamn, produktInfo) {
@@ -48,24 +49,29 @@ function visaKundkorg() { // Denna funktionen printar endast ut listan med objek
             produktAntal = item[2][1];
             produktAntal = produktAntal.replace("antal","");
             
+            produktPris = String((parseInt(produktAntal) * parseInt(produktPris.slice(0,-2)))); 
+
+            
+
+            
             // produktNamn
-            list += "<tr><td class='fw-bolder' style='padding-right: 50px; font-size: 30px;'>" + produktNamn + "</td>\n"
+            list += "<tr><td class='fw-bolder' style='padding-right: 50px; font-size: 30px;' id='produktNamn" + i + "'>" + produktNamn + "</td>\n"
             
             // produktPris
-            totalKostnad += parseInt(item[0].slice(0,-2)); // tar bort sista två charsen (kr) samt gör om produkt priset till en int
-            list += "<td style='font-size: 20px;'>" +
-			produktPris + "</td>";
+            totalKostnad += parseInt(produktPris); // tar bort sista två charsen (kr) samt gör om produkt priset till en int
+            list += "<td style='font-size: 20px;' id='produktPris" + i + "'>" +
+			produktPris + " kr" +"</td>";
 
             // produktBild
             list += "</tr><td><img class='card-img-top' src='" + produktBild + "'></img></td>\n";
 
             // produktAntal
-            list += "<td style='font-size: 20px;'>Antal: " +
+            list += "<td style='font-size: 20px;' id='produktAntal" + i + "'>Antal: " +
 			produktAntal + "</td>";
 
             // produktKnappar
-            list += "<ul><li type='button' class='btn btn-outline-dark mt-auto' onclick=rensaKundKorg()><a>+</a></li>" 
-            + "<li type='button' class='btn btn-outline-dark mt-auto' onclick=rensaKundKorg()><a>-</a></li></ul>";
+            list += "<td type='button' class='btn btn-outline-dark mt-auto' onclick=adderaProduktAntal(" + i + ")><a>+</a></td>" 
+            + "<td type='button' class='btn btn-outline-dark mt-auto' onclick=subtraheraProduktAntal(" + i + ")><a>-</a></td>";
 		}
 
         
@@ -109,16 +115,51 @@ function getKundkorg() { // Denna funktionen sätter id "antal produkter" till a
 
 
 // Kundvagns funktioner
-function modifieraProduktAntal(produktNamn) {
-    var item = [];
-    var produktNamn = "";
-    var produktPris = "";
-    var produktBild = "";
-    var produktAntal = "";
+function adderaProduktAntal(id) {
+    var produktNamn = document.getElementById('produktNamn'+id).innerText;
+    var produktAntal = document.getElementById('produktAntal'+id).innerText;
+    var produktInfo = localStorage.getItem(produktNamn)
+    var produktAntalTemp = produktAntal.replace('Antal: ','');
+    var produktInfoTemp = [];
 
 
+    produktAntalTemp = parseInt(produktAntalTemp) + 1;
+    produktAntal = "antal" + produktAntalTemp;
+
+    produktInfoTemp = produktInfo.split(/(?=antal)/g);
+    produktInfoTemp[1] = produktAntal;
+    produktInfoTemp = produktInfoTemp.join("");
+
+    localStorage.setItem(produktNamn, produktInfoTemp);
+    getKundkorg();
+	visaKundkorg();
+}
+
+function subtraheraProduktAntal(id) {
+    var produktNamn = document.getElementById('produktNamn'+id).innerText;
+    var produktAntal = document.getElementById('produktAntal'+id).innerText;
+    var produktInfo = localStorage.getItem(produktNamn)
+    var produktAntalTemp = produktAntal.replace('Antal: ','');
+    var produktInfoTemp = [];
 
 
+    produktAntalTemp = parseInt(produktAntalTemp) - 1;
+    if(parseInt(produktAntalTemp) <= 0)
+    {
+        localStorage.removeItem(produktNamn);
+    }
+    else {
+        produktAntal = "antal" + produktAntalTemp;
+
+        produktInfoTemp = produktInfo.split(/(?=antal)/g);
+        produktInfoTemp[1] = produktAntal;
+        produktInfoTemp = produktInfoTemp.join("");
+    
+        localStorage.setItem(produktNamn, produktInfoTemp);
+    }
+
+    getKundkorg();
+	visaKundkorg();
 }
 
 function rensaKundKorg() {
@@ -126,11 +167,6 @@ function rensaKundKorg() {
     getKundkorg();
 	visaKundkorg();
 }
-
-
-
-
-
 
 
 
