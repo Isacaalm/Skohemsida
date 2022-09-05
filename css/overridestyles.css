@@ -23,3 +23,7 @@
   .footer {
     flex-shrink: 0;
   }
+ #Kvitto{
+   padding-top: 6%;
+   padding-bottom: 3%;
+ }

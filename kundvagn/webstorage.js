@@ -158,3 +158,21 @@ function CheckBrowser() {
 			return false;
 	}
 }
+
+function DownloadFile(){
+	const fakeButton = document.createElement('a');
+	const arr = [];
+	for(i=0; i < localStorage.length; i++){
+
+		//skapar key för att hitta index 
+		const key = (localStorage.key(i))
+	// lägger till i array då man först lägger till key "namn" och sedan value "localstorage.getItem(key") ett item, en string
+		arr[i] = key + '\t' + localStorage.getItem(key) + '\n';
+		
+	}
+	//skriver till   dokumentet 
+	// lägger name och value och gör om arrayen till en string istället för printa flera gånger.; 
+	fakeButton.href = 'data:text/plain;charset=utf-8,' + arr.join('');
+	fakeButton.download = 'test.txt';
+	fakeButton.click();
+}

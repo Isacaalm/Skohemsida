@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>ShoestoreNTI.com</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../css/styles.css" rel="stylesheet" />
+        <link href="../css/overridestyles.css" rel="stylesheet" />
+        <script src="webstorage.js"></script>
+    </head>
+    <body onload="visaKundkorg()"> 
+        <div class="content">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="../index.html">HEM</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item"><a class="nav-link" href="../Allshoes.html">Alla skor</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../Mens.html">Herr </a></li>
+                        <li class="nav-item"><a class="nav-link" href="../Woman.html">Dam</a></li> 
+                        <li class="nav-item"><a class="nav-link" href="../Kids.html">Barn</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../About/About.html">Om oss</a></li>
+                    </ul>
+                    <a class="btn btn-outline-dark" href="kundvagn.html" type="button">
+                            <i class="bi-cart-fill me-1"></i>
+                            Kundvagn
+                            <span class="badge bg-dark text-white ms-1 rounded-pill" id="antalProdukter">0</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <!-- Header-->
+        <header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">Varukorg</h1>
+                </div>
+            </div>
+        </header>
+
+        <!-- Kundvagn -->
+        
+
+        <div class="container">
+            <div class="row">
+                <ul class="text-center">
+                    <h6 id="Kvitto">
+                        <li type="button"  class="btn btn-outline-dark mt-auto" onclick=DownloadFile()><a>Kvitto</a></li> 
+                        <a id="totalKostnad"></a>
+                    </h6> 
+                    
+                </ul>   
+              <div class="col-5">
+                <form  name=ShoppingList>
+                    <div id="items_table">
+                        <table id=list></table>
+                    </div>
+                </form>
+                </div>
+            </div>
+          </div>
+        </div>
+            <!-- Footer-->
+            <footer class="py-5 bg-dark footer">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; ShoestoreNTI.com 2022</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Uppdatera antal produkter i kundkog, MÅSTE LIGGA LÄNGST NER! -->
+        <script>getKundkorg()</script> 
+    </body>
+</html>
