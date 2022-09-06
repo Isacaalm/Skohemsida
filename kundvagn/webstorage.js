@@ -58,7 +58,7 @@ function visaKundkorg() { // Denna funktionen printar endast ut listan med objek
             list += "<tr style='margin-bottom: 40px;' class='card h-100'><td class='fw-bolder' style='padding-right: 50px; white-space: nowrap; overflow: hidden; text-overflow: clip; font-size: 30px; padding-left: 15px;' id='produktNamn" + i + "'>" + produktNamn + "</td>\n"
             
     		// produktBild
-            list += "<td style='text-align: center;'><img style='width:60%; height:60%;' class='card-img-top' src='" + produktBild + "'></img></td>\n";
+            list += "<td style='text-align: center;'><img style='width:60%;' class='card-img-top' src='" + produktBild + "'></img></td>\n";
 
 			// produktPris
             totalKostnad += parseInt(produktPris); // tar bort sista två charsen (kr) samt gör om produkt priset till en int
