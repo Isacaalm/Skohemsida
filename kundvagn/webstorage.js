@@ -55,23 +55,23 @@ function visaKundkorg() { // Denna funktionen printar endast ut listan med objek
 
             
             // produktNamn
-            list += "<tr><td class='fw-bolder' style='padding-right: 50px; font-size: 30px;' id='produktNamn" + i + "'>" + produktNamn + "</td>\n"
+            list += "<tr style='margin-bottom: 40px;' class='card h-100'><td class='fw-bolder' style='padding-right: 50px; white-space: nowrap; overflow: hidden; text-overflow: clip; font-size: 30px; padding-left: 15px;' id='produktNamn" + i + "'>" + produktNamn + "</td>\n"
             
-            // produktPris
+    		// produktBild
+            list += "<td style='text-align: center;'><img style='width:60%; height:60%;' class='card-img-top' src='" + produktBild + "'></img></td>\n";
+
+			// produktPris
             totalKostnad += parseInt(produktPris); // tar bort sista två charsen (kr) samt gör om produkt priset till en int
-            list += "<td style='font-size: 20px;' id='produktPris" + i + "'>" +
+            list += "<td style='font-size: 20px; font-weight: bold; text-align: right' id='produktPris " + i + "'>" +
 			produktPris + " kr" +"</td>";
 
-            // produktBild
-            list += "</tr><td><img class='card-img-top' src='" + produktBild + "'></img></td>\n";
-
             // produktAntal
-            list += "<td style='font-size: 20px;' id='produktAntal" + i + "'>Antal: " +
+            list += "<td style='font-size : 20px; font-weight: bold; text-align: right' id='produktAntal" + i + "'>Antal: " +
 			produktAntal + "</td>";
 
             // produktKnappar
             list += "<td type='button' class='btn btn-outline-dark mt-auto' onclick=adderaProduktAntal(" + i + ")><a>+</a></td>" 
-            + "<td type='button' class='btn btn-outline-dark mt-auto' onclick=subtraheraProduktAntal(" + i + ")><a>-</a></td>";
+            + "<td type='button' class='btn btn-outline-dark mt-auto' onclick=subtraheraProduktAntal(" + i + ")><a>-</a></td></tr>";
 		}
 
         
