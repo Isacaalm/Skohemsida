@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)http://127.0.0.1:5500/kundvagn/kundvagn.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>ShoestoreNTI.com</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="http://127.0.0.1:5500/kundvagn/assets/favicon.ico">
+        <!-- Bootstrap icons-->
+        <link href="./ShoestoreNTI.com_files/bootstrap-icons.css" rel="stylesheet">
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="./ShoestoreNTI.com_files/styles.css" rel="stylesheet">
+        <link href="./ShoestoreNTI.com_files/overridestyles.css" rel="stylesheet">
+        <script src="./ShoestoreNTI.com_files/webstorage.js.nedladdning"></script>
+    </head>
+    <body onload="visaKundkorg()"> 
+        <div class="content">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="http://127.0.0.1:5500/index.html"><img src="./ShoestoreNTI.com_files/logga.png" style="height: 55px;"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:5500/Allshoes.html">Alla skor</a></li>
+                        <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:5500/Mens.html">Herr </a></li>
+                        <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:5500/Woman.html">Dam</a></li> 
+                        <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:5500/Kids.html">Barn</a></li>
+                        <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:5500/About/About.html">Om oss</a></li>
+                    </ul>
+                    <a class="btn btn-outline-dark" href="http://127.0.0.1:5500/kundvagn/kundvagn.html" type="button">
+                            <i class="bi-cart-fill me-1"></i>
+                            Kundvagn
+                            <span class="badge bg-dark text-white ms-1 rounded-pill" id="antalProdukter">6</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <!-- Header-->
+        <header style="overflow: hidden;" class="bg-secondary">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">Kundvagn</h1>
+                </div>
+            </div>
+        </header>
+
+        <!-- Kundvagn -->
+
+        <div class="container" style="margin-left: 100px;">
+            <div class="row">                 
+                <div class="col-4">
+                    <form name="ShoppingList">
+                        <div id="items_table">
+                            <table id="list"><tbody><tr><th></th><th></th></tr>
+<tr style="margin-bottom: 40px;" class="card h-100"><td class="fw-bolder" style="padding-right: 50px; white-space: nowrap; overflow: hidden; text-overflow: clip; font-size: 30px; padding-left: 15px;" id="produktNamn0">Air Jordan 1 Retro Low OG SP</td>
+<td style="text-align: center;"><img style="width:60%;" class="card-img-top" src="./ShoestoreNTI.com_files/travis.png"></td>
+<td style="font-size: 20px; font-weight: bold; text-align: right; padding-right: 15px" id="produktPris 0">14 999 kr</td><td style="font-size : 20px; font-weight: bold; text-align: right; padding-right: 15px" id="produktAntal0">Antal: 1</td><td type="button" class="btn btn-outline-dark mt-auto" onclick="adderaProduktAntal(0)"><a>+</a></td><td type="button" class="btn btn-outline-dark mt-auto" onclick="subtraheraProduktAntal(0)"><a>-</a></td></tr><tr style="margin-bottom: 40px;" class="card h-100"><td class="fw-bolder" style="padding-right: 50px; white-space: nowrap; overflow: hidden; text-overflow: clip; font-size: 30px; padding-left: 15px;" id="produktNamn1">Air Jordan 4 Retro 'Infrared'</td>
+<td style="text-align: center;"><img style="width:60%;" class="card-img-top" src="./ShoestoreNTI.com_files/infared.png"></td>
+<td style="font-size: 20px; font-weight: bold; text-align: right; padding-right: 15px" id="produktPris 1">3 499 kr</td><td style="font-size : 20px; font-weight: bold; text-align: right; padding-right: 15px" id="produktAntal1">Antal: 1</td><td type="button" class="btn btn-outline-dark mt-auto" onclick="adderaProduktAntal(1)"><a>+</a></td><td type="button" class="btn btn-outline-dark mt-auto" onclick="subtraheraProduktAntal(1)"><a>-</a></td></tr><tr style="margin-bottom: 40px;" class="card h-100"><td class="fw-bolder" style="padding-right: 50px; white-space: nowrap; overflow: hidden; text-overflow: clip; font-size: 30px; padding-left: 15px;" id="produktNamn2">Adidas Yeezy Slide 'Onyx'</td>
+<td style="text-align: center;"><img style="width:60%;" class="card-img-top" src="./ShoestoreNTI.com_files/slides.png"></td>
+<td style="font-size: 20px; font-weight: bold; text-align: right; padding-right: 15px" id="produktPris 2">2 099 kr</td><td style="font-size : 20px; font-weight: bold; text-align: right; padding-right: 15px" id="produktAntal2">Antal: 1</td><td type="button" class="btn btn-outline-dark mt-auto" onclick="adderaProduktAntal(2)"><a>+</a></td><td type="button" class="btn btn-outline-dark mt-auto" onclick="subtraheraProduktAntal(2)"><a>-</a></td></tr><tr style="margin-bottom: 40px;" class="card h-100"><td class="fw-bolder" style="padding-right: 50px; white-space: nowrap; overflow: hidden; text-overflow: clip; font-size: 30px; padding-left: 15px;" id="produktNamn3">Nike Dunk Low 'UNC'</td>
+<td style="text-align: center;"><img style="width:60%;" class="card-img-top" src="./ShoestoreNTI.com_files/unc.png"></td>
+<td style="font-size: 20px; font-weight: bold; text-align: right; padding-right: 15px" id="produktPris 3">3 499 kr</td><td style="font-size : 20px; font-weight: bold; text-align: right; padding-right: 15px" id="produktAntal3">Antal: 1</td><td type="button" class="btn btn-outline-dark mt-auto" onclick="adderaProduktAntal(3)"><a>+</a></td><td type="button" class="btn btn-outline-dark mt-auto" onclick="subtraheraProduktAntal(3)"><a>-</a></td></tr><tr style="margin-bottom: 40px;" class="card h-100"><td class="fw-bolder" style="padding-right: 50px; white-space: nowrap; overflow: hidden; text-overflow: clip; font-size: 30px; padding-left: 15px;" id="produktNamn4">Nike SB Dunk Low Ben &amp; Jerry's</td>
+<td style="text-align: center;"><img style="width:60%;" class="card-img-top" src="./ShoestoreNTI.com_files/benjerry.png"></td>
+<td style="font-size: 20px; font-weight: bold; text-align: right; padding-right: 15px" id="produktPris 4">33 998 kr</td><td style="font-size : 20px; font-weight: bold; text-align: right; padding-right: 15px" id="produktAntal4">Antal: 2</td><td type="button" class="btn btn-outline-dark mt-auto" onclick="adderaProduktAntal(4)"><a>+</a></td><td type="button" class="btn btn-outline-dark mt-auto" onclick="subtraheraProduktAntal(4)"><a>-</a></td></tr></tbody></table>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-8" style="position: absolute; right: 0; max-height: 80%">
+                    <table id="summering" style="position: absolute; right: 0; max-height: 80%"><tbody><tr class="card h-100"><td><li type="button" class="btn btn-outline-dark mt-auto" onclick="rensaKundKorg()"><a>Töm kundvagn</a></li></td><td class="fw-bolder" style="font-size: 30px; padding-left: 30px; padding-right: 30px; padding-bottom: 10px; text-align: center;">Sammanställning</td><td style="text-align: center; padding-bottom: 50px"><a><img src="./ShoestoreNTI.com_files/logga.png" style="width:50%;"></a></td><td style="padding-left: 30px; padding-right: 30px; font-size: 20px"><b>Beräknad frakt: </b>0 kr</td><td style="padding-left: 30px; padding-right: 30px; font-size: 20px; padding-bottom: 50px"><b>Total Kostnad: </b>58 094 kr</td><td style="text-align: center; padding-bottom: 50px"><a style="font-size: 30px" href="http://127.0.0.1:5500/kundvagn/kundvagn.html#" class="btn btn-outline-dark mt-auto">Gå till checkout</a></td></tr></tbody></table>
+                </div>
+            </div>
+          </div>
+        </div>
+        <br>
+            <!-- Footer-->
+            <footer class="py-5 bg-dark footer">
+            <div class="container"><p class="m-0 text-center text-white">Copyright © ShoestoreNTI.com 2022</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="./ShoestoreNTI.com_files/bootstrap.bundle.min.js.nedladdning"></script>
+        <!-- Uppdatera antal produkter i kundkog, MÅSTE LIGGA LÄNGST NER! -->
+        <script>getKundkorg()</script> 
+    <!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+</body></html>
