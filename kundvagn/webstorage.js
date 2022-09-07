@@ -76,7 +76,7 @@ function visaKundkorg() { // Denna funktionen printar endast ut listan med objek
 		}
 
 		// Summeringsruta
-		summering += "<tr class='card h-100'>" + "<td style='padding-left: 10px; padding-top: 10px;'><li type='button' class='btn btn-outline-dark mt-auto' onclick=rensaKundKorg()><a>Töm kundvagn</a></li></td>" + "<td class='fw-bolder' style='font-size: 30px; padding-left: 30px; padding-right: 30px; padding-bottom: 10px; text-align: rignt;'>"
+		summering += "<tr class='card h-100'>" + "<td style='padding-left: 10px; padding-top: 10px;'><li type='button' class='btn btn-outline-dark mt-auto' onclick=rensaKundKorg()><a>Töm kundvagn</a></li></td>" + "<td class='fw-bolder' style='font-size: 30px; padding-left: 30px; padding-right: 25px; padding-bottom: 10px; text-align: rignt;'>"
 		+ "Sammanställning" + "</td>";
 		summering += "<td style='text-align: center; padding-bottom: 50px'><a><img src='../Images/logga.png' style='width:40%;'></a></td>";
 		summering += "<td style='padding-left: 30px; padding-right: 30px; font-size: 20px'><b>Beräknad frakt: </b>0 kr";
