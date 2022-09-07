@@ -20,7 +20,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="index.html">HEM</a>
+                <a class="navbar-brand" href="index.html"><img src="Images/logga.png" style="height: 55px;"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
@@ -34,12 +34,67 @@
                             <i class="bi-cart-fill me-1"></i>
                             Kundvagn
                             <span class="badge bg-dark text-white ms-1 rounded-pill" id="antalProdukter">0</span>
+
+                            
+                            <!-- Popup under kundvagn -->
+                            <span hidden id="popup" style="color: rgb(24, 24, 24);outline: none;box-sizing: border-box;display: block;position: absolute;z-index: 91;bottom: 0rem;transform: translateX(25%) translateY(100%);/* left: 85%; */">
+                                <span style="
+                                z-index: 1;
+                                position: absolute;
+                                width: 100%;
+                                height: 100%;
+                                max-width: 0.75rem;
+                                max-height: 0.75rem;
+                                background-color: rgb(24, 24, 24);
+                                top: -0.0625rem;
+                                transform: rotate(45deg) translateY(-50%);
+                                left: calc(50% - 0.65525rem);
+                                outline: none;
+                                box-sizing: border-box;
+                                color: rgb(24, 24, 24);"></span>
+                                <span style="
+                                display: block;
+                                position: relative;
+                                white-space: normal;
+                                padding: 1.25rem;
+                                background-color: rgb(24, 24, 24);
+                                box-shadow: rgb(0 0 0 / 50%) 0px 0.25rem 0.625rem 0px;
+                                text-transform: none;
+                                text-align:center;
+                                outline: none;
+                                box-sizing: border-box;
+                                color: rgb(24, 24, 24);">
+                                    <span style="
+                                    display: block;
+                                    color: rgb(255, 255, 255);
+                                    font-size: 0.8125rem;
+                                    line-height: 1.25rem;
+                                    margin-top: -0.25rem;
+                                    margin-bottom: -0.25rem;
+                                    white-space: normal;
+                                    text-transform: none;
+                                    text-align: center;">
+                                        <p color="white" type="body" style="
+                                        margin: 0px;
+                                        color: rgb(255, 255, 255);
+                                        font-size: 0.8125rem;
+                                        line-height: 1.25rem;
+                                        outline: none;
+                                        box-sizing: border-box;
+                                        white-space: normal;
+                                        text-transform: none;
+                                        text-align: center;">
+                                            Vara tillagd!
+                                        </p>
+                                    </span>
+                                </span>
+                            </span>
                     </a>
                 </div>
             </div>
         </nav>
         <!-- Header-->
-        <header style="overflow: hidden;" class="bg-dark py-5">
+        <header style="overflow: hidden;" class="bg-secondary">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
                     <h1 class="display-4 fw-bolder">Dam</h1>
@@ -112,7 +167,7 @@
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder" id ="produktNamn3">New Balance MR530 - white/black</h5>
+                                    <h5 class="fw-bolder" id ="produktNamn3">New Balance MR530</h5>
                                     <!-- Product price-->
                                     <div id="produktPris3">979 kr</div>
                                 </div>
@@ -135,7 +190,7 @@
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder" id ="produktNamn4">Adidas Originals - collegiate navy/clear sky</h5>
+                                    <h5 class="fw-bolder" id ="produktNamn4">Adidas Originals - collegiate</h5>
                                    
                                    
                                     <!-- Product price-->
@@ -210,7 +265,7 @@
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder" id="produktNamn7">Stradivarius Slip-ins - Black</h5>
+                                    <h5 class="fw-bolder" id="produktNamn7">Stradivarius Slip-ins</h5>
                                  
                                     <!-- Product price-->
                                     <div id="produktPris7">399 kr</div>
@@ -237,7 +292,7 @@
                                     <h5 class="fw-bolder" id="produktNamn8">Steve Madden MATCH</h5>
                                  
                             <!-- Product price-->
-                            <div id="produktPris8">399 kr</div>
+                            <div id="produktPris8">1 299 kr</div>
                             </div>
                             </div>
                             <!-- Product actions-->
