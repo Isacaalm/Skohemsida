@@ -23,9 +23,18 @@
   .footer {
     flex-shrink: 0;
   }
+ HEAD
+  .responsive {
+    width: 100%;
+    height: auto;
+  }
+
+  
+
  #Kvitto{
    padding-top: 6%;
    padding-bottom: 3%;
  }
  
  
+
