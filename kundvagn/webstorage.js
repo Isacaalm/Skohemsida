@@ -18,10 +18,10 @@ function handlaProdukt(id) {
 function adderaAntal(produktNamn, produktInfo) {
     var produktInfoTemp = [];
     var produktAntalTemp = 0;
-    produktInfoTemp = produktInfo.split(/(?=antal)/g);
-    produktInfoTemp[1] = produktInfoTemp[1].replace("antal","");
-    produktAntalTemp = parseInt(produktInfoTemp[1]) + 1;
-    produktInfoTemp[1] = produktAntalTemp.toString();
+    produktInfoTemp = produktInfo.split(/(?=antal)/g); // produktInfoTemp=[produktnamn,ProduktBildProduktPris]
+    produktInfoTemp[1] = produktInfoTemp[1].replace("antal",""); // produktInfoTemp=[produktnamn, ProduktBildProduktPris] (tar bort antal från produktInfoTemp[1])
+    produktAntalTemp = parseInt(produktInfoTemp[1]) + 1; // produktInfoTemp=[produktnamn, ProduktBildProduktPris] Öka ProduktPris med 1
+    produktInfoTemp[1] = produktAntalTemp.toString(); 
     produktInfoTemp[1] = "antal" + produktInfoTemp[1];
     produktInfoTemp = produktInfoTemp.join("");
     localStorage.setItem(produktNamn, produktInfoTemp);
@@ -162,17 +162,36 @@ function CheckBrowser() {
 function DownloadFile(){
 	const fakeButton = document.createElement('a');
 	const arr = [];
+    let fnamn = "";
+    fnamn = document.getElementById('fname').value;
+    console.log(fnamn);
+    fakeButton.href = "data:text/plain;charset=utf-8," + "Tack för att du köpte av oss, " + fnamn + "!%0D%0A %0D%0A"; // %0D%0A = radbyte
 	for(i=0; i < localStorage.length; i++){
 
 		//skapar key för att hitta index 
 		const key = (localStorage.key(i))
 	// lägger till i array då man först lägger till key "namn" och sedan value "localstorage.getItem(key") ett item, en string
-		arr[i] = key  + localStorage.getItem(key) + '\n';
-		
+		arr[i] = key + localStorage.getItem(key);
+        arr[i] = arr[i].split(/(?=http)/g);
+        arr[i][1] = arr[i][1].split(/(?=antal)/g);
+        arr[i][2] = arr[i][1][1].replace("antal","Antal: ");
+        arr[i].splice([1], 1);
+        arr[i][0] = arr[i][0].replace(key, "");
+
+        const produktNamnKvitto = key;
+        const produktPrisKvitto = arr[i][0];
+        const produktAntalKvitto = arr[i][1];
+        // arr[i] = [2099kr,Antal 1]
+        // arr[i][0] = 2099kr  PRIS
+        // arr[i][1] = 1    ANTAL
+
+        fakeButton.href +=  produktNamnKvitto + "%0D%0A" + produktPrisKvitto + " " + produktAntalKvitto + "%0D%0A";
 	}
+
+ 
+
+
 	//skriver till   dokumentet 
-	// lägger name och value och gör om arrayen till en string istället för printa flera gånger.; 
-	fakeButton.href = 'data:text/plain;charset=utf-8,' + arr.join('');
 	fakeButton.download = 'Kvitto.txt';
 	fakeButton.click();
 }
