@@ -81,7 +81,7 @@ function visaKundkorg() { // Denna funktionen printar endast ut listan med objek
 		summering += "<td style='text-align: center; padding-bottom: 50px'><a><img src='../Images/logga.png' style='width:40%;'></a></td>";
 		summering += "<td style='padding-left: 30px; padding-right: 30px; font-size: 20px'><b>Beräknad frakt: </b>0 kr";
 		summering += "<td style='padding-left: 30px; padding-right: 30px; font-size: 20px; padding-bottom: 50px'><b>Total Kostnad: </b>" +  totalKostnad.toLocaleString("fr") + " kr" + "</td>";
-		summering += "<td style='text-align: left; padding-bottom: 50px; padding-left: 20px;'><a style='font-size: 25px' href='#' class='btn btn-outline-dark mt-auto'>Gå till checkout</a></td>" + "</tr>";
+		summering += "<td style='text-align: left; padding-bottom: 50px; padding-left: 20px;'><a style='font-size: 25px' href='Checkout.html' class='btn btn-outline-dark mt-auto'>Gå till checkout</a></td>" + "</tr>";
  		
 		
         
@@ -94,7 +94,12 @@ function visaKundkorg() { // Denna funktionen printar endast ut listan med objek
         }
 
 		document.getElementById('list').innerHTML = list; 
-		document.getElementById('summering').innerHTML = summering; 
+        if(document.getElementById('summering')) {
+            document.getElementById('summering').innerHTML = summering; 
+        }
+        if(document.getElementById('totalKostnad')) {
+            document.getElementById('totalKostnad').innerHTML = totalKostnad.toLocaleString("fr") + "kr";
+        }     
 }
 
 
