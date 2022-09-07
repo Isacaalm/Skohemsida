@@ -21,7 +21,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="index.html"><img src="../Images/logga.png" style="height: 55px;"></a>
+                <a class="navbar-brand" href="../index.html">HEM</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
@@ -43,7 +43,7 @@
         <header class="bg-dark py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Checkout</h1>
+                    <h1 class="display-4 fw-bolder">Varukorg</h1>
                 </div>
             </div>
         </header>
@@ -56,7 +56,7 @@
                     <div class="container_checkout">
                         <form action="/action_page.php">
                             <div>
-                                <label for="fName"> <i class="fa fa-uset"></i>Full name</label>
+                                <label for="fName"> <i class="fa fa-uset" ></i>Full name</label>
                                 <input type="text" id="fname" name="firstname" placeholder="John Doe">
                                 <label for="email"><i class="fa fa-envelope"></i>Email</label>
                                 <input type="text" id="email" name="Email" placeholder="john@example.com">
@@ -66,30 +66,6 @@
                                 <input type="text" id="city" placeholder="Helsingborg">
                                 <label for="zip">Zip</label>
                                 <input type="text" name="zip" id="zip" placeholder="252 25">
-                            </div>
-    
-                            <div class="col-50_checkout">
-                                
-                                <label for="cname"> Name on the card</label>
-                                <input type="text" name="cardname" id="cname" placeholder="John Doe">
-                                <label for="ccnum">Credit card number</label>
-                                <input type="text" name="cardnumber" id="ccnum" placeholder="1111-2222-3333-4444">
-                                <label for="expmonth">Exp month</label>
-                                <input type="text" name="expmonth" id="expmonth" placeholder="September">
-                            </div>
-    
-                            <div class="row_checkout">
-                                <div class="col-50_checkout">
-                                    <label for="expyear">Exp year</label>
-                                    <input type="text" name="expyear" id="expyear" placeholder="2029">
-                                </div>
-                                <div class="col-50_checkout">
-                                    <label for="cvv">CVV</label>
-                                    <input type="text" name="cvv" id="cvv" placeholder="352">
-                                </div>
-
-                                
-    
                             </div>
                         </form>
                     </div>
@@ -102,16 +78,10 @@
 
         <div class="container_checkout">
             <div class="row">
-                <ul class="text-center">
-                    <h6 id="Köp">
-                        <li type="button" class="btn btn-outline-dark mt-auto"> Köp </li>
-
-                    </h6>
-                    
-                </ul>
+                
                 <ul class="text-center">
                     <h6 id="Kvitto">
-                        <li type="button"  class="btn btn-outline-dark mt-auto" onclick=DownloadFile()><a>Kvitto</a></li> 
+                        <li type="button"  class="btn btn-outline-dark mt-auto" onclick=DownloadFile()><a>Köp</a></li> 
                         <a id="totalKostnad"></a>
                     </h6> 
                     

@@ -213,10 +213,15 @@ function CheckBrowser() {
 function DownloadFile(){
 	const fakeButton = document.createElement('a');
 	const arr = [];
-    let fnamn = "";
-    fnamn = document.getElementById('fname').value;
+    let fnamn = document.getElementById('fname').value;
+    let email =document.getElementById('email').value;
+    let adress =document.getElementById('adr').value;
+    let city = document.getElementById('city').value;
+    let zip = document.getElementById('zip').value; 
+
+
     console.log(fnamn);
-    fakeButton.href = "data:text/plain;charset=utf-8," + "Tack för att du köpte av oss, " + fnamn + "!%0D%0A %0D%0A"; // %0D%0A = radbyte
+    fakeButton.href = "data:text/plain;charset=utf-8," + "Tack för att du köpte av oss, " + fnamn + "!" + "%0D%0A %0D%0A" + "Kvittot skickas till" + " " + email  + "%0D%0A" + "Produkterna skickas till " + adress + ", " + city + " " + zip + "%0D%0A" + "%0D%0A" ; // %0D%0A = radbyte
 	for(i=0; i < localStorage.length; i++){
 
 		//skapar key för att hitta index 
