@@ -76,12 +76,12 @@ function visaKundkorg() { // Denna funktionen printar endast ut listan med objek
 		}
 
 		// Summeringsruta
-		summering += "<tr class='card h-100'>" + "<td><li type='button' class='btn btn-outline-dark mt-auto' onclick=rensaKundKorg()><a>Töm kundvagn</a></li></td>" + "<td class='fw-bolder' style='font-size: 30px; padding-left: 30px; padding-right: 30px; padding-bottom: 10px; text-align: center;'>"
+		summering += "<tr class='card h-100'>" + "<td style='padding-left: 10px; padding-top: 10px;'><li type='button' class='btn btn-outline-dark mt-auto' onclick=rensaKundKorg()><a>Töm kundvagn</a></li></td>" + "<td class='fw-bolder' style='font-size: 30px; padding-left: 30px; padding-right: 30px; padding-bottom: 10px; text-align: rignt;'>"
 		+ "Sammanställning" + "</td>";
-		summering += "<td style='text-align: center; padding-bottom: 50px'><a><img src='../Images/logga.png' style='width:50%;'></a></td>";
+		summering += "<td style='text-align: center; padding-bottom: 50px'><a><img src='../Images/logga.png' style='width:40%;'></a></td>";
 		summering += "<td style='padding-left: 30px; padding-right: 30px; font-size: 20px'><b>Beräknad frakt: </b>0 kr";
 		summering += "<td style='padding-left: 30px; padding-right: 30px; font-size: 20px; padding-bottom: 50px'><b>Total Kostnad: </b>" +  totalKostnad.toLocaleString("fr") + " kr" + "</td>";
-		summering += "<td style='text-align: center; padding-bottom: 50px'><a style='font-size: 30px' href='#' class='btn btn-outline-dark mt-auto'>Gå till checkout</a></td>" + "</tr>";
+		summering += "<td style='text-align: left; padding-bottom: 50px; padding-left: 20px;'><a style='font-size: 25px' href='#' class='btn btn-outline-dark mt-auto'>Gå till checkout</a></td>" + "</tr>";
  		
 		
         
