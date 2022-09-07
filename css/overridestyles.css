@@ -23,11 +23,12 @@
   .footer {
     flex-shrink: 0;
   }
- HEAD
-  .responsive {
-    width: 100%;
-    height: auto;
-  }
+
+ .responsive1 {
+  width: 100%;
+  height: auto;
+}
+
 
   
 
