@@ -249,7 +249,7 @@ function DownloadFile() {
             // arr[i][0] = 2099kr  PRIS
             // arr[i][1] = 1    ANTAL
 
-            fakeButton.href += produktNamnKvitto + "%0D%0A" + produktPrisKvitto + " " + produktAntalKvitto + "%0D%0A";
+            fakeButton.href += produktNamnKvitto + "%0D%0A" + produktPrisKvitto + " " + produktAntalKvitto + "%0D%0A" + "%0D%0A";
         }
 
         fakeButton.download = 'Kvitto.txt';
