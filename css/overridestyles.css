@@ -45,7 +45,7 @@
 
  .tdCheckout {
     padding-right: 2%; 
-    font-size: 0,4vW; 
+    font-size: 1.5vh; 
     padding-left: 1%;
  }
 
@@ -55,14 +55,14 @@
 }
 
 .produktAntalCheckout {
-  font-size : 0,4vW; 
+  font-size : 1.5vh; 
   font-weight: bold; 
   text-align: right; 
   padding-right: 15px;
 }
 
 .produktPrisCheckout {
-  font-size: 0,4vW; 
+  font-size: 1.5vh; 
   font-weight: bold; 
   text-align: right; 
   padding-right: 15px;

@@ -56,14 +56,14 @@ function adderaAntal(produktNamn, produktInfo) {
 
 
 //             // produktNamn	
-//             list += "<tr style='margin-bottom: 40px;' class='card h-100'><td class='fw-bolder' style='padding-right: 50px; font-size: 0,5vw; padding-left: 15px;' id='produktNamn" + i + "'>" + produktNamn + "</td>\n"
+//             list += "<tr style='margin-bottom: 40px;' class='card h-100'><td class='fw-bolder' style='padding-right: 50px; font-size: 1.5vh; padding-left: 15px;' id='produktNamn" + i + "'>" + produktNamn + "</td>\n"
 
 //             // produktBild
 //             list += "<td style='text-align: center;'><img style='width:0%;' class='card-img-top' src='" + produktBild + "'></img></td>\n";
 
 //             // produktPris
 //             totalKostnad += parseInt(produktPris); // tar bort sista två charsen (kr) samt gör om produkt priset till en int
-//             list += "<td style='font-size: 0,5vw; font-weight: bold; text-align: right; padding-right: 15px' id='produktPris " + i + "'>" +
+//             list += "<td style='font-size: 1.5vh; font-weight: bold; text-align: right; padding-right: 15px' id='produktPris " + i + "'>" +
 //                 parseInt(produktPris).toLocaleString("fr") + " kr" + "</td>";
 
 //             // produktAntal
@@ -76,17 +76,17 @@ function adderaAntal(produktNamn, produktInfo) {
 //         }
 
 //         // Summeringsruta
-//         summering += "<tr class='card h-100'>" + "<td style='padding-left: 10px; padding-top: 10px;'><li type='button' class='btn btn-outline-dark mt-auto' onclick=rensaKundKorg()><a>Töm kundvagn</a></li></td>" + "<td class='fw-bolder' style='font-size: 0,5vw; padding-left: 30px; padding-right: 30px; padding-bottom: 10px; text-align: center;'>"
+//         summering += "<tr class='card h-100'>" + "<td style='padding-left: 10px; padding-top: 10px;'><li type='button' class='btn btn-outline-dark mt-auto' onclick=rensaKundKorg()><a>Töm kundvagn</a></li></td>" + "<td class='fw-bolder' style='font-size: 1.5vh; padding-left: 30px; padding-right: 30px; padding-bottom: 10px; text-align: center;'>"
 //             + "Sammanställning" + "</td>";
 //         summering += "<td style='text-align: center; padding-bottom: 50px'><a><img src='../Images/logga.png' style='width:40%;'></a></td>";
-//         summering += "<td style='padding-left: 30px; padding-right: 30px; font-size: 0,5vw'><b>Beräknad frakt: </b>0 kr";
-//         summering += "<td style='padding-left: 30px; padding-right: 30px; font-size: 0,5vw; padding-bottom: 50px'><b>Total Kostnad: </b>" + totalKostnad.toLocaleString("fr") + " kr" + "</td>";
-//         summering += "<td style='text-align: left; padding-bottom: 50px; padding-left: 20px; text-align: center;'><a style='font-size: 0,5vw;' href='Checkout.html' class='btn btn-outline-dark mt-auto'>Gå till checkout</a></td>" + "</tr>";
+//         summering += "<td style='padding-left: 30px; padding-right: 30px; font-size: 1.5vh'><b>Beräknad frakt: </b>0 kr";
+//         summering += "<td style='padding-left: 30px; padding-right: 30px; font-size: 1.5vh; padding-bottom: 50px'><b>Total Kostnad: </b>" + totalKostnad.toLocaleString("fr") + " kr" + "</td>";
+//         summering += "<td style='text-align: left; padding-bottom: 50px; padding-left: 20px; text-align: center;'><a style='font-size: 1.5vh;' href='Checkout.html' class='btn btn-outline-dark mt-auto'>Gå till checkout</a></td>" + "</tr>";
 
 
 
 //         if (list == "<tr></tr>\n") {
-//             list += "<tr><td class='fw-bolder' style='font-size: 0,5vw;'>Din kundvagn är tom</td></tr>";
+//             list += "<tr><td class='fw-bolder' style='font-size: 1.5vh;'>Din kundvagn är tom</td></tr>";
 //         }
 
 //     } else {
@@ -257,6 +257,7 @@ function DownloadFile() {
     }
 }
 
+
 function visaKundkorgCheckout() { // Special version då den printar ut produkterna i sidled istället för horizontellt
     if (CheckBrowser()) {
         var item = [];
@@ -268,8 +269,7 @@ function visaKundkorgCheckout() { // Special version då den printar ut produkte
         var list = "<tr></tr>\n";
         var summering = "";
         var totalKostnad = 0;
-
-        for (var i = 0; i <= localStorage.length - 2; i+=2) {
+        if (localStorage.length === 1) {   
             pristoInt = 0;
             produktNamn = localStorage.key(i);
             item = localStorage.getItem(produktNamn).split(/(?=http)/g); // delar item till vänster om "http"
@@ -283,14 +283,14 @@ function visaKundkorgCheckout() { // Special version då den printar ut produkte
 
 
             // produktNamn	
-            list += "<tr style='border-color:black; border-style: solid; border-width: thin;'><td class='fw-bolder' style='padding-right: 2%; font-size: 0,5vw; padding-left: 1%;' id='produktNamn" + i + "'>" + produktNamn + "</td>\n"
+            list += "<tr style='border-color:black; border-style: solid; border-width: thin;'><td class='fw-bolder' style='padding-right: 2%; font-size: 1.5vh; padding-left: 1%;' id='produktNamn" + i + "'>" + produktNamn + "</td>\n"
 
             // produktBild
             list += "<td style='text-align: left;'><img class='produktBildCheckout' src='" + produktBild + "'></img></td>\n";
 
             // produktPris
             totalKostnad += parseInt(produktPris); // tar bort sista två charsen (kr) samt gör om produkt priset till en int
-            list += "<td class='produktPrisCheckout' id='produktPris " + i + "'>" +
+            list += "<td class='produktPrisCheckout' id='produktPris" + i + "'>" +
                 parseInt(produktPris).toLocaleString("fr") + " kr" + "</td>";
 
             // produktAntal
@@ -298,8 +298,42 @@ function visaKundkorgCheckout() { // Special version då den printar ut produkte
                 produktAntal + "</td>";
 
             // produktKnappar
-            list += "<td type='button' class='btn btn-outline-dark mt-auto' onclick=adderaProduktAntal(" + i + ")><a>+</a></td>"
-                + "<td type='button' class='btn btn-outline-dark mt-auto' onclick=subtraheraProduktAntal(" + i + ")><a>-</a></td>";
+            list += "<td type='button' class='btn btn-outline-dark mt-auto btn-sm' onclick=adderaProduktAntal(" + i + ")><a>+</a></td>"
+                + "<td type='button' class='btn btn-outline-dark mt-auto btn-sm' onclick=subtraheraProduktAntal(" + i + ")><a>-</a></td>";
+        }
+
+
+        for (var i = 0; i <= localStorage.length -2; i+=2) {
+            pristoInt = 0;
+            produktNamn = localStorage.key(i);
+            item = localStorage.getItem(produktNamn).split(/(?=http)/g); // delar item till vänster om "http"
+            produktPris = item[0];
+            item[2] = item[1].split(/(?=antal)/g);
+            produktBild = item[2][0];
+            produktAntal = item[2][1];
+            produktAntal = produktAntal.replace("antal", "");
+
+            produktPris = String((parseInt(produktAntal) * parseInt(produktPris.slice(0, -2))));
+
+
+            // produktNamn	
+            list += "<tr style='border-color:black; border-style: solid; border-width: thin;'><td class='fw-bolder' style='padding-right: 2%; font-size: 1.5vh; padding-left: 1%;' id='produktNamn" + i + "'>" + produktNamn + "</td>\n"
+
+            // produktBild
+            list += "<td style='text-align: left;'><img class='produktBildCheckout' src='" + produktBild + "'></img></td>\n";
+
+            // produktPris
+            totalKostnad += parseInt(produktPris); // tar bort sista två charsen (kr) samt gör om produkt priset till en int
+            list += "<td class='produktPrisCheckout' id='produktPris" + i + "'>" +
+                parseInt(produktPris).toLocaleString("fr") + " kr" + "</td>";
+
+            // produktAntal
+            list += "<td class='produktAntalCheckout' id='produktAntal" + i + "'>Antal: " +
+                produktAntal + "</td>";
+
+            // produktKnappar
+            list += "<td type='button' class='btn btn-outline-dark mt-auto btn-sm' onclick=adderaProduktAntal(" + i + ")><a>+</a></td>"
+                + "<td type='button' class='btn btn-outline-dark mt-auto btn-sm' onclick=subtraheraProduktAntal(" + i + ")><a>-</a></td>";
 
             
             
@@ -319,14 +353,14 @@ function visaKundkorgCheckout() { // Special version då den printar ut produkte
                 produktPris = String((parseInt(produktAntal) * parseInt(produktPris.slice(0, -2))));
 
                 // produktNamn	
-                list += "<td class='fw-bolder' style='padding-right: 2%; font-size: 0,5vw; padding-left: 1%; border-left: 1px solid;' id='produktNamn" + (i+2) + "'>" + produktNamn + "</td>\n"
+                list += "<td class='fw-bolder' style='padding-right: 2%; font-size: 1.5vh; padding-left: 1%; border-left: 1px solid;' id='produktNamn" + (i+2) + "'>" + produktNamn + "</td>\n"
 
                 // produktBild
                 list += "<td style='text-align: left;'><img class='produktBildCheckout' src='" + produktBild + "'></img></td>\n";
 
                 // produktPris
                 totalKostnad += parseInt(produktPris); // tar bort sista två charsen (kr) samt gör om produkt priset till en int
-                list += "<td class='produktPrisCheckout' id='produktPris " + (i+2) + "'>" +
+                list += "<td class='produktPrisCheckout' id='produktPris" + (i+2) + "'>" +
                     parseInt(produktPris).toLocaleString("fr") + " kr" + "</td>";
 
                 // produktAntal
@@ -334,8 +368,8 @@ function visaKundkorgCheckout() { // Special version då den printar ut produkte
                     produktAntal + "</td>";
 
                 // produktKnappar
-                list += "<td type='button' class='btn btn-outline-dark mt-auto' onclick=adderaProduktAntal(" + (i+2) + ")><a>+</a></td>"
-                    + "<td type='button' class='btn btn-outline-dark mt-auto' onclick=subtraheraProduktAntal(" + (i+2) + ")><a>-</a></td>";
+                list += "<td type='button' class='btn btn-outline-dark mt-auto btn-sm' onclick=adderaProduktAntal(" + (i+2) + ")><a>+</a></td>"
+                    + "<td type='button' class='btn btn-outline-dark mt-auto btn-sm' onclick=subtraheraProduktAntal(" + (i+2) + ")><a>-</a></td>";
                 
                 
                 pristoInt = 0;
@@ -347,14 +381,14 @@ function visaKundkorgCheckout() { // Special version då den printar ut produkte
                 produktAntal = item[2][1];
                 produktAntal = produktAntal.replace("antal", "");
                 // produktNamn	
-                list += "<tr style='border-color:black; border-style: solid; border-width: thin;'><td class='fw-bolder' style='padding-right: 2%; font-size: 0,5vw; padding-left: 1%;' id='produktNamn" + i + "'>" + produktNamn + "</td>\n"
+                list += "<tr style='border-color:black; border-style: solid; border-width: thin;'><td class='fw-bolder' style='padding-right: 2%; font-size: 1.5vh; padding-left: 1%;' id='produktNamn" + (i+3) + "'>" + produktNamn + "</td>\n"
 
                 // produktBild
                 list += "<td style='text-align: left;'><img class='produktBildCheckout' src='" + produktBild + "'></img></td>\n";
 
                 // produktPris
                 totalKostnad += parseInt(produktPris); // tar bort sista två charsen (kr) samt gör om produkt priset till en int
-                list += "<td class='produktPrisCheckout' id='produktPris " + (i+3) + "'>" +
+                list += "<td class='produktPrisCheckout' id='produktPris" + (i+3) + "'>" +
                     parseInt(produktPris).toLocaleString("fr") + " kr" + "</td>";
 
                 // produktAntal
@@ -362,8 +396,8 @@ function visaKundkorgCheckout() { // Special version då den printar ut produkte
                     produktAntal + "</td>";
 
                 // produktKnappar
-                list += "<td type='button' class='btn btn-outline-dark mt-auto' onclick=adderaProduktAntal(" + (i+3) + ")><a>+</a></td>"
-                + "<td type='button' class='btn btn-outline-dark mt-auto' onclick=subtraheraProduktAntal(" + (i+3) + ")><a>-</a></td><td style='border-left: 1px solid;'></td>";
+                list += "<td type='button' class='btn btn-outline-dark mt-auto btn-sm' onclick=adderaProduktAntal(" + (i+3) + ")><a>+</a></td>"
+                + "<td type='button' class='btn btn-outline-dark mt-auto btn-sm' onclick=subtraheraProduktAntal(" + (i+3) + ")><a>-</a></td><td style='border-left: 1px solid;'></td>";
             }
             else {
             pristoInt = 0;
@@ -378,7 +412,7 @@ function visaKundkorgCheckout() { // Special version då den printar ut produkte
             produktPris = String((parseInt(produktAntal) * parseInt(produktPris.slice(0, -2))));
 
             // produktNamn	
-            list += "<td class='fw-bolder' style='padding-right: 2%; font-size: 0,5vw; padding-left: 1%; border-left: 1px solid;' id='produktNamn" + (i+1) + "'>" + produktNamn + "</td>\n"
+            list += "<td class='fw-bolder' style='padding-right: 2%; font-size: 1.5vh; padding-left: 1%; border-left: 1px solid;' id='produktNamn" + (i+1) + "'>" + produktNamn + "</td>\n"
 
             // produktBild
             list += "<td style='text-align: left;'><img class='produktBildCheckout' src='" + produktBild + "'></img></td>\n";
@@ -393,23 +427,23 @@ function visaKundkorgCheckout() { // Special version då den printar ut produkte
                 produktAntal + "</td>";
 
             // produktKnappar
-            list += "<td type='button' class='btn btn-outline-dark mt-auto' onclick=adderaProduktAntal(" + (i+1) + ")><a>+</a></td>"
-                + "<td type='button' class='btn btn-outline-dark mt-auto' onclick=subtraheraProduktAntal(" + (i+1) + ")><a>-</a></td>";
+            list += "<td type='button' class='btn btn-outline-dark mt-auto btn-sm' onclick=adderaProduktAntal(" + (i+1) + ")><a>+</a></td>"
+                + "<td type='button' class='btn btn-outline-dark mt-auto btn-sm' onclick=subtraheraProduktAntal(" + (i+1) + ")><a>-</a></td>";
             }
         }
 
         // Summeringsruta
-        summering += "<tr class='card h-100'>" + "<td class='fw-bolder' style='font-size: 2vw; padding-left: 30px; padding-right: 30px; padding-bottom: 10px; text-align: center;'>"
+        summering += "<tr class='card h-100'>" + "<td class='fw-bolder' style='font-size: 2vh; padding-left: 30px; padding-right: 30px; padding-bottom: 10px; text-align: center;'>"
             + "Sammanställning" + "</td>";
         summering += "<td style='text-align: center; padding-bottom: 50px'><a><img src='../Images/logga.png' style='width:40%;'></a></td>";
-        summering += "<td style='padding-left: 30px; padding-right: 30px; font-size: 0,5vw'><b>Beräknad frakt: </b>0 kr";
-        summering += "<td style='padding-left: 30px; padding-right: 30px; font-size: 0,5vw; padding-bottom: 50px'><b>Total Kostnad: </b>" + totalKostnad.toLocaleString("fr") + " kr" + "</td>";
-        summering += "<td style='text-align: left; padding-bottom: 50px; padding-left: 20px; text-align: center;'><a style='font-size: 0,5vw;' class='btn btn-outline-dark mt-auto' onclick=DownloadFile()>Köp</a></td>" + "</tr>";
+        summering += "<td style='padding-left: 30px; padding-right: 30px; font-size: 1.5vh'><b>Beräknad frakt: </b>0 kr";
+        summering += "<td style='padding-left: 30px; padding-right: 30px; font-size: 1.5vh; padding-bottom: 50px'><b>Total Kostnad: </b>" + totalKostnad.toLocaleString("fr") + " kr" + "</td>";
+        summering += "<td style='text-align: left; padding-bottom: 50px; padding-left: 20px; text-align: center;'><a style='font-size: 1.5vh;' class='btn btn-outline-dark mt-auto' onclick=DownloadFile()>Köp</a></td>" + "</tr>";
 
 
 
         if (list == "<tr></tr>\n") {
-            list += "<tr><td class='fw-bolder' style='font-size: 0,5vw;'>Din kundvagn är tom</td></tr>";
+            list += "<tr><td class='fw-bolder' style='font-size: 2vh;'>Din kundvagn är tom</td></tr>";
         }
 
     } else {
