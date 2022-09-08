@@ -37,6 +37,33 @@
    padding-top: 6%;
    padding-bottom: 3%;
  }
- 
- 
 
+
+
+
+
+
+ .tdCheckout {
+    padding-right: 2%; 
+    font-size: 0,4vW; 
+    padding-left: 1%;
+ }
+
+
+ .produktBildCheckout {
+  width:100%;
+}
+
+.produktAntalCheckout {
+  font-size : 0,4vW; 
+  font-weight: bold; 
+  text-align: right; 
+  padding-right: 15px;
+}
+
+.produktPrisCheckout {
+  font-size: 0,4vW; 
+  font-weight: bold; 
+  text-align: right; 
+  padding-right: 15px;
+}
