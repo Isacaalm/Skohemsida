@@ -179,7 +179,6 @@ function subtraheraProduktAntal(id) {
 function rensaKundKorg() {
     localStorage.clear();
     getKundkorg();
-    visaKundkorgCheckout();
 }
 
 
